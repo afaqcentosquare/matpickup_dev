@@ -1,0 +1,112 @@
+.modal.fade {
+  display: block !important;
+  opacity: 0;
+  visibility: hidden;
+  transition: all 0.3s ease 0s;
+}
+
+.modal.fade.show {
+  display: block !important;
+  opacity: 1;
+  visibility: visible;
+  transition: all 0.3s ease 0s;
+}
+
+#quickview {
+  .modal-dialog {
+    width: calc(100% - 30px);
+    max-width: 64rem;
+  }
+
+  .single-img {
+    text-align: center;
+  }
+
+  .title {
+    font-size: 24px;
+    text-transform: capitalize;
+    margin: 0px 0 17px 0;
+    font-weight: 400;
+    color: $dark;
+  }
+}
+
+.modal-quantity {
+  color: $dark;
+  font-size: 16px;
+  margin-bottom: 0.375rem;
+}
+
+.add-to-wishlist {
+  font-size: 12px;
+  color: $body-color;
+}
+
+// addtowishlist
+
+#addtowishlist {
+  .modal-dialog {
+    width: 360px;
+  }
+}
+
+.wishlist-modal {
+  padding: 0px 0px 50px;
+}
+
+// add to cart
+#add-to-cart {
+  .modal-dialog {
+    max-width: 1140px;
+  }
+  & .modal-title {
+    font-weight: 600;
+    color: $white;
+    font-size: 1.125rem;
+  }
+  & .ion-android-done {
+    color: $white;
+    font-size: 24px;
+  }
+
+  & .product-name {
+    font-weight: 700;
+    font-size: 16px;
+    margin-bottom: 20px;
+    color: $dark;
+  }
+
+  & .btn-close {
+    right: 20px;
+    color: $white !important;
+    background: none;
+    font-size: 1.5rem;
+    font-weight: 700;
+    line-height: 1;
+    text-shadow: 0 1px 0 #fff;
+    padding: 0px;
+  }
+}
+
+.quntity-list {
+  li {
+    font-size: 14px;
+    font-weight: 600;
+    color: $dark;
+    margin-bottom: 1rem;
+  }
+}
+
+.cart-content {
+  & .title {
+    font-weight: 400;
+    color: $dark;
+  }
+  & p {
+    color: $dark;
+    & span {
+      font-weight: 600;
+      color: $dark;
+    }
+  }
+}

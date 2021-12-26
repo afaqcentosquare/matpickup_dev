@@ -1,0 +1,33 @@
+/******************************** 
+     static media Css
+  ********************************/
+  .media {
+    display: flex;
+    align-items: flex-start;
+  }
+  
+  .media-body {
+    flex: 1;
+   
+  }
+  
+  .static-media {
+    .title {
+      text-transform: capitalize;
+      font-size: 18px;
+      margin-bottom: 5px;
+      font-weight: 500;
+      color: $white;
+      @include max-screen(992, 1199) {
+        font-size: 15px;
+      }
+    }
+    .text{
+      color: $white;
+    }
+  }
+  
+  /******************************** 
+       static media Css End
+    ********************************/
+  

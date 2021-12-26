@@ -1,0 +1,70 @@
+button {
+  outline: dotted 0px !important;
+  &:focus {
+    box-shadow: none;
+  }
+}
+.btn {
+  &:focus {
+    box-shadow: none;
+  }
+}
+
+@each $name, $value in $theme-colors {
+  .btn-#{$name} {
+    border-color: $value;
+    background-color: $value;
+
+    @if $name == secondary {
+      color: $card-headings-color;
+      background: $transparent;
+      border-color: $transparent;
+      text-decoration: underline;
+    } @else {
+      color: $white;
+    }
+  }
+
+  .btn-hover-#{$name} {
+    &:hover {
+      border-color: $value;
+      background-color: $value;
+      @if $name == light {
+        color: $headings-color;
+      } @else if $name == warning {
+        color: $white;
+        background: $warning;
+        border-color: $warning;
+      } @else if $name == dark {
+        color: $white;
+        background: $dark;
+        border-color: $dark;
+      } @else if $name == secondary {
+        color: $white;
+        background: $secondary;
+        border-color: $secondary;
+      } @else if $name == $primary {
+        color: $white;
+        background: $primary;
+        border-color: $primary;
+      } @else {
+        color: $white;
+      }
+    }
+  }
+}
+
+//
+.btn-search {
+  background: $warning;
+  height: 100%;
+  display: inline-block;
+  line-height: 1;
+  text-transform: capitalize;
+  padding: 0 30px;
+  color: $white;
+  font-size: 16px;
+  font-weight: 600;
+  border: 1px solid $warning;
+  border-radius: 0 4px 4px 0;
+}

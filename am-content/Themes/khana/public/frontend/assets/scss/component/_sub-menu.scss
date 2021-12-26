@@ -1,0 +1,57 @@
+.sub-menu {
+  text-align: left;
+  position: absolute;
+  z-index: 9999;
+  top: 80px;
+  left: 0;
+  width: 230px;
+  padding: 15px 0;
+  opacity: 0;
+  visibility: hidden;
+  border-top: 2px solid $warning;
+  background-color: $white;
+  box-shadow: 0 2px 29px rgba(0, 0, 0, 0.05);
+  transition: all 0.4s ease 0.2s;
+
+  & .sub-menu {
+    left: 100%;
+    opacity: 0;
+    visibility: hidden;
+  }
+
+  &.blog-sub-menu {
+    left: auto;
+    right: 0;
+    .sub-menu {
+      left: auto;
+      right: 100%;
+      top: 0 !important;
+    }
+  }
+
+  li {
+    position: relative;
+    & + li {
+      margin-left: 0px !important;
+    }
+  }
+  .sub-menu-link {
+    font-size: 15px;
+    font-weight: 400;
+    line-height: 1.375;
+    display: block;
+    padding: 8px 20px;
+  }
+}
+
+.main-menu {
+  li {
+    &:hover > {
+      .sub-menu {
+        top: 50px;
+        visibility: visible;
+        opacity: 1;
+      }
+    }
+  }
+}

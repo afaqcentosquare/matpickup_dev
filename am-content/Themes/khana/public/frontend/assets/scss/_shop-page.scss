@@ -1,0 +1,214 @@
+/*------------------*
+# Shop Pages
+*------------------*/
+.tab-content .tab-pane.active .grid-view .product-card {
+  animation: zoomIn 0.5s ease;
+  animation-duration: 1s;
+}
+.tab-content .tab-pane.active .grid-view-list .col-12 {
+  animation: fadeInRight 0.5s ease;
+  animation-duration: 1s;
+}
+
+.nav-tabs {
+  border-bottom: 0px;
+}
+
+.grid-nav-wraper {
+  padding-top: 30px;
+  padding-bottom: 30px;
+}
+
+.shop-grid-nav .nav .nav-item {
+  & + .nav-item {
+    margin-left: 15px;
+  }
+  line-height: 1;
+}
+
+.total-products {
+  margin-left: 50px;
+  line-height: 20px;
+  font-size: 14px;
+  padding: 5px;
+  color: $dark;
+  @include max-screen(992, 1199) {
+    margin-left: 30px;
+  }
+  @include max-screen(991) {
+    margin-left: 20px;
+  }
+}
+
+.shop-grid-nav .nav .nav-link {
+  width: 45px;
+  height: 45px;
+  color: #aaa;
+  padding: 0;
+  text-align: center;
+  background: $white;
+  font-size: 24px;
+  line-height: 45px;
+  border: 1px solid #f0f0f0;
+  border-radius: 4px;
+}
+
+.shop-grid-nav .nav .nav-link.active,
+.shop-grid-nav .nav .nav-link:hover {
+  color: $white;
+  background: $warning;
+  border: 1px solid $warning;
+}
+
+.shop-grid-button select {
+  width: 100%;
+  border: 1px solid $border-color;
+  background: $white;
+  padding: 2px 15px;
+  line-height: 24px;
+  font-size: 14px;
+  color: $body-color;
+  text-align: left;
+}
+
+.product-option {
+  position: relative;
+  select {
+    border: 1px solid $border-color;
+    background: $white;
+    padding: 2px 15px;
+    line-height: 24px;
+    font-size: 14px;
+    color: $body-color;
+    text-align: left;
+    text-transform: uppercase;
+    width: 70px;
+    height: 40px;
+    &:focus {
+      border-color: #e5e5e5;
+    }
+  }
+  .chevron-arrow-down {
+    position: absolute;
+    right: 15px;
+    font-size: 20px;
+  }
+}
+
+.shop-grid-menu {
+  background: $white;
+  width: calc(100% - 145px);
+  border: 1px solid $border-color;
+}
+
+.shop-grid-menu .dropdown-item {
+  line-height: 24px;
+  font-size: 14px;
+  padding: 3px 15px;
+  color: $dark;
+}
+
+.shop-grid-menu .dropdown-item:hover {
+  background: $warning;
+  color: $white;
+}
+
+.sort-by {
+  min-width: 70px;
+  line-height: 20px;
+  font-size: 14px;
+  padding: 5px;
+  margin-left: 50px;
+  @include max-screen(991) {
+    margin-left: 0px;
+  }
+}
+
+.shop-grid-button {
+  position: relative;
+
+  .form-select {
+    &:focus {
+      border-color: #e5e5e5;
+    }
+  }
+
+  .chevron-arrow-down {
+    position: absolute;
+    right: 20px;
+    font-size: 20px;
+  }
+}
+
+.shop-grid-5 {
+  .col-xl-2 {
+    @include min-screen(1200) {
+      width: 20%;
+    }
+  }
+}
+
+.blog-ctry-menu {
+  li {
+    a {
+      position: relative;
+      font-weight: normal;
+      color: #63696f;
+      font-size: 14px;
+      text-transform: capitalize;
+      line-height: 36px;
+      display: block;
+      &:hover {
+        color: $warning;
+      }
+      &::before {
+        content: "\f2c7";
+        position: absolute;
+        display: inline-block;
+        font-family: "Ionicons";
+        right: 0;
+      }
+    }
+    &.active {
+      a {
+        &::before {
+          content: "\f462";
+        }
+      }
+    }
+    // category-sub-menu
+    ul.category-sub-menu {
+      display: none;
+      li {
+        a {
+          font-size: 12px;
+          line-height: 30px;
+          margin: 0;
+          padding: 0 10px;
+          display: block;
+          color: #333333;
+          &:hover {
+            color: $warning;
+          }
+          &::before {
+            content: "";
+          }
+        }
+      }
+    }
+  }
+}
+
+.blog-ctry-menu2 {
+  li {
+    a {
+      color: $dark;
+    }
+  }
+}
+.Showing {
+  color: $dark;
+}
+/*------------------*
+  # Shop Pages End
+  *------------------*/

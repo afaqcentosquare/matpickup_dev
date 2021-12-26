@@ -1,0 +1,49 @@
+/*------------------*
+# Whishlist Page
+*------------------*/
+
+@media (max-width: 991px) {
+  .whish-list-section .table {
+    min-width: 1030px;
+  }
+}
+
+.whish-list-section .title {
+  color: #32383e;
+  text-transform: uppercase;
+  font-size: 24px;
+  font-weight: 500;
+  border-bottom: 1px solid $border-color;
+  
+}
+
+.whish-list-section .table .thead-light th {
+  background-color: $primary;
+  border-color: transparent;
+  text-transform: capitalize;
+
+  font-weight: 500;
+  color: $white;
+  font-size: 16px;
+}
+
+.whish-list-section .table td,
+.whish-list-section .table th {
+  vertical-align: middle;
+}
+
+.whish-list-section img {
+  max-width: 150px;
+}
+
+.whish-title {
+  font-size: 15px;
+}
+.whish-list-price {
+  color: $dark;
+  font-size: 15px;
+}
+
+/* ***************
+    whishlist End
+   ******************/

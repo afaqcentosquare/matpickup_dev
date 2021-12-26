@@ -1,0 +1,42 @@
+/*------------------*
+# About Us Page
+*------------------*/
+
+.about-content .title {
+  font-weight: 500;
+  color: $dark;
+  text-transform: capitalize;
+  font-size: 30px;
+  @include max-screen(767) {
+    font-size: 25px;
+  }
+  max-width: 900px;
+  margin: 0 auto 20px;
+  line-height: 1.4;
+}
+
+.about-info .title {
+  font-size: 34px;
+
+  font-weight: 500;
+  color: $dark;
+}
+
+.single-service {
+  .title {
+    font-size: 20px;
+    font-weight: 500;
+    color: $dark;
+  }
+}
+
+.service-section {
+  .single-blog {
+    img {
+      width: 100%;
+    }
+  }
+}
+/* *******************
+     about us page End
+   **********************/

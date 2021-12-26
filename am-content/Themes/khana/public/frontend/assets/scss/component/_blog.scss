@@ -1,0 +1,142 @@
+.blog-card {
+  background: #f5f5f5;
+  .thumb {
+    a {
+      display: block;
+      img {
+        width: 100%;
+      }
+    }
+  }
+}
+
+.blog-content {
+  padding: 20px;
+  @include max-screen(576, 767) {
+    padding: 15px;
+  }
+  .blog-meta {
+    color: #999999;
+    font-size: 14px;
+    line-height: 1.571;
+    text-transform: capitalize;
+  }
+  .title {
+    position: relative;
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 1.428;
+    color: $dark;
+    text-transform: capitalize;
+    padding-bottom: 20px;
+    margin-bottom: 20px;
+
+    &:hover {
+      color: $warning;
+    }
+    a {
+      color: inherit;
+    }
+
+    &::before {
+      content: "";
+      display: block;
+      position: absolute;
+      width: 30px;
+      height: 1px;
+      bottom: 0;
+      background: #d6d6d6;
+    }
+  }
+}
+
+// blog-card-list
+
+.blog-carousel {
+  .swiper-container {
+    margin: -15px;
+    padding: 15px;
+  }
+}
+
+.blog-carousel-list {
+  .swiper-container {
+    margin: -15px;
+    padding: 15px;
+  }
+}
+
+.blog-card-list {
+  display: flex;
+  & .thumb {
+    width: 40%;
+    margin-right: 20px;
+  }
+
+  & .blog-content {
+    flex: 1;
+    padding: 10px 0px;
+
+    .title {
+      padding-bottom: 10px;
+      margin-bottom: 10px;
+    }
+  }
+
+  & + .blog-card-list {
+    border-top: 1px solid #ededed;
+    margin-top: 20px;
+    // padding-top: 20px;
+  }
+}
+
+.blog-6-column {
+  .col-xl-3 {
+    @include min-screen(1920) {
+      width: 16.666%;
+    }
+  }
+}
+.blog-5-column {
+  .col-xl-3 {
+    @include min-screen(1920) {
+      width: 20%;
+    }
+  }
+}
+
+.list-group-item {
+  background-color: transparent;
+  border-color: #e9e9e9;
+  color: $body-color;
+}
+
+.blog-card-list2 {
+  @include min-screen(768) {
+    display: flex;
+    @include max-screen(992, 1199) {
+      flex-direction: column;
+    }
+  }
+  .thumb {
+  }
+  .blog-content {
+    flex: 1;
+    .title {
+      padding-bottom: 0;
+      @include max-screen(992, 1199) {
+        margin-bottom: 10px;
+      }
+      &::before {
+        display: none;
+      }
+    }
+  }
+}
+
+.blog-list-link {
+  color: $warning;
+  &:hover {
+    text-decoration: underline;
+  }
+}

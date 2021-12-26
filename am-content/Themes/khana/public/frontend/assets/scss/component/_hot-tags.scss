@@ -1,0 +1,32 @@
+.tags_block {
+  margin-bottom: 15px;
+  @include max-screen(991) {
+    display: none !important;
+  }
+}
+
+.hot-tags {
+  font-size: 14px;
+  line-height: 1;
+  font-weight: normal;
+  color: $dark;
+  text-transform: capitalize;
+}
+
+.tags-menu {
+  .tag-link {
+    font-size: 14px;
+    font-weight: 400;
+    padding: 0 10px;
+    line-height: 1;
+    border-right: 1px solid #acafb1;
+    color: #63696f;
+    display: inline-block;
+    &:hover {
+      color: $warning;
+    }
+    &:last-child {
+      border-right: none;
+    }
+  }
+}

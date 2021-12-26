@@ -1,0 +1,70 @@
+.adress {
+  li {
+    & + li {
+      margin-top: 5px;
+    }
+    a {
+      color: $body-color;
+      font-size: 14px;
+      line-height: 1.714;
+    }
+  }
+}
+
+.phone-call {
+  color: $warning;
+  font-size: 24px;
+}
+.footer-widget {
+  .title {
+    font-size: 18px;
+    line-height: 1.666;
+    font-weight: 500;
+    text-transform: capitalize;
+    margin-bottom: 20px;
+  }
+  p {
+    margin-bottom: 30px;
+  }
+}
+
+.footer-logo {
+  display: inline-block;
+}
+
+// footer-menu
+
+.footer-menu {
+  li {
+    margin-bottom: 10px;
+    &:last-child {
+      margin-bottom: 0;
+    }
+    .footer-link {
+      color: $body-color;
+      font-size: 14px;
+      &:hover {
+        color: $warning;
+        padding-left: 5px;
+      }
+    }
+  }
+}
+
+// copyright-info
+
+.copy-right-section {
+  padding: 20px 0px;
+}
+.copyright-info {
+  p {
+    font-size: 13px;
+    a {
+      color: $warning;
+      &:hover {
+        text-decoration: underline;
+        color: $dark;
+      }
+    }
+  }
+}

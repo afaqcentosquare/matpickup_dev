@@ -1,0 +1,31 @@
+/*--------------------------------------
+/*  Brand Css Start
+----------------------------------------*/
+.brand-carousel {
+  padding: 30px 0;
+  border: 1px solid #f0f0f0;
+  border-radius: 3px;
+}
+.brand-carousel2 {
+  padding: 30px 0;
+  border: 1px solid #f0f0f0;
+  border-radius: 3px;
+}
+.single-brand {
+  text-align: center;
+  .thumb {
+    display: block;
+    img {
+      opacity: 0.3;
+    }
+    &:hover {
+      img {
+        opacity: 1;
+      }
+    }
+  }
+}
+
+/*--------------------------------------
+/*  Brand Css ENd
+----------------------------------------*/

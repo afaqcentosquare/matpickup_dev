@@ -1,0 +1,118 @@
+.checkout-cart {
+  top: 80px;
+  position: absolute;
+  right: 0;
+  background: $white;
+  width: 355px;
+  @include max-screen(575) {
+    width: 300px;
+  }
+
+  @include max-screen(380) {
+    right: -70px;
+  }
+
+  opacity: 0;
+  visibility: hidden;
+  border-top: 2px solid $warning;
+  box-shadow: 0px 2px 7.44px 0.56px rgba(0, 0, 0, 0.1);
+  transition: ease-in-out 0.3s;
+  z-index: 99;
+}
+.checkout-scroll {
+  max-height: 268px;
+  overflow-y: auto;
+}
+
+.checkout-cart-list {
+  padding: 20px;
+  border-bottom: 1px solid #e5e5e5;
+  display: flex;
+}
+.checkout-img {
+  margin: 0 20px 0 0;
+  position: relative;
+}
+.product-image {
+  align-items: flex-start;
+}
+.product-quantity {
+  position: absolute;
+  top: 5px;
+  left: 5px;
+  min-width: 25px;
+  padding: 0;
+  text-align: center;
+  background: $warning;
+  color: $white;
+  font-size: 14px;
+  line-height: 1.785;
+  display: inline-block;
+  border-radius: 50%;
+}
+
+.checkout-block {
+  text-align: left;
+  position: relative;
+  padding: 0 20px 0 0;
+  flex: 1;
+}
+.product-name {
+  text-transform: capitalize;
+  font-size: 14px;
+  line-height: 1.428;
+}
+.product-price {
+  display: block;
+  margin: 10px 0 0;
+  font-weight: 600;
+  line-height: 1.666;
+  font-size: 18px;
+  color: $dark;
+}
+.remove-cart {
+  display: block;
+  position: absolute;
+  top: 0;
+  right: 0;
+  color: $white;
+  &:hover {
+    color: $white;
+  }
+  padding: 3px;
+  border-radius: 100%;
+  width: 20px;
+  height: 20px;
+  text-align: center;
+  background: $warning;
+  font-weight: 300;
+  font-size: 12px;
+  line-height: 1.166;
+}
+.product-size {
+  font-weight: 400;
+  font-size: 16px;
+  margin: 5px 0 0;
+}
+.checkout-sub-total {
+  padding: 20px 20px;
+  margin-bottom: 20px;
+
+  .list-group-item {
+    text-transform: capitalize;
+    padding: 0;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border: 0px;
+    span {
+      font-weight: 500;
+      color: $dark;
+      line-height: 1.923;
+    }
+  }
+}
+
+.checkout-action {
+  padding: 0px 20px 20px;
+}

@@ -1,0 +1,137 @@
+/*-------------------------------------------------------------
+
+  #  Template Name: Benito - Mega Store Responsive Bootstrap 5 Template
+  #  Author   Name: Hastech
+  #  Version: 1.0
+
+-------------------------------------------------------------
+    
+  #   CSS INDEX
+========================================================
+	
+    [ 01. Bootstrap CSS ]
+
+    [ 02. Template default CSS ]
+
+    [ 03. header CSS ]
+
+    [ 04. hero Slider CSS ]
+
+    [ 05. Component CSS ]
+
+    [ 05.1 Component button CSS ]
+
+    [ 05.2 Component form CSS ]
+
+    [ 05.3 Component title CSS ]
+
+    [ 05.4 Component card CSS ]
+
+    [ 05.5 Component massonary CSS ]
+
+    [ 05.6 Component brand CSS ] 
+
+    [ 05.7 Component feature CSS ]
+
+    [ 05.8 Component about CSS ]
+
+    [ 05.9 Component service CSS ]
+
+    [ 05.10 Component testimonial CSS ]
+
+    [ 05.11 Component funfact CSS ]
+
+    [ 05.12 Component team CSS ]
+
+    [ 05.13 Component blog CSS ]
+
+    [ 05.14 Component news-letter CSS ]
+
+    [ 05.15 Component banner CSS ]
+
+    [ 05.16 Component contact CSS ]
+    
+    [ 05.17 Component accordion CSS ]
+    
+    [ 05.18 Component pagination CSS ]
+
+    [ 05.19 Component sidebar widget CSS ]
+
+    [ 05.20 Component blog details CSS ]
+
+    [ 06 Component sub menu CSS ]
+
+    [ 07 Component footer CSS ]
+
+    [ 08 Component mini-cart CSS ]
+
+    [ 09 Component products CSS ] 
+
+    [ 10 Component modal CSS ] 
+
+    [ 11 Component verticle slider CSS ] 
+
+    [ 12 Component count CSS ] 
+
+    [ 13 Component coundown CSS ] 
+
+    [ 14 Component hot tags CSS ] 
+
+    [ 15 Component bread crumb CSS ] 
+
+    [ 16 Component about us CSS ] 
+
+    [ 16 Component static media CSS ] 
+
+    [ 17 Component whish list CSS ] 
+
+    [ 18 Component check out CSS ] 
+
+    [ 19 Component compare CSS ] 
+
+    [ 20 Component myaccount CSS ] 
+
+-----------------------------------------------------*/
+
+/*--------------------------------------
+/*  [ 01. Bootstrap CSS ]
+----------------------------------------*/
+
+@import "./bootstrap/functions";
+@import "variabls";
+@import "custom-variables";
+@import "./bootstrap/bootstrap";
+
+/*--------------------------------------
+/*  Bootstrap Css End
+----------------------------------------*/
+
+/*--------------------------------------
+/*   [ 02. Template default CSS ] 
+----------------------------------------*/
+
+@import "mixin";
+@import "common";
+
+/*--------------------------------------
+/*   [ 03. header CSS ] 
+----------------------------------------*/
+
+@import "header";
+/*--------------------------------------
+/*   [ 04. hero Slider CSS ] 
+----------------------------------------*/
+
+@import "hero";
+
+/*--------------------------------------
+/*   [ 05. Component CSS ] 
+----------------------------------------*/
+
+@import "component";
+
+/*--------------------------------------
+/*   [ 16. shop page CSS ] 
+----------------------------------------*/
+
+@import "shop-page"
