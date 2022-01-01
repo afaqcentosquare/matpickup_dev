@@ -29,7 +29,7 @@ class Kernel extends ConsoleKernel
             ->daily();
 
         $schedule->command('stormarknadkatrineholmjul:cron')
-            ->everyMinute();
+                ->hourlyAt(10);
     }
 
     /**
