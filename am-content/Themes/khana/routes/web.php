@@ -86,7 +86,7 @@ Route::group(['namespace'=>'Amcoders\Theme\khana\http\controllers','middleware'=
 	Route::get('payment-with/stripe', 'OrderController@stripe_view');
 	Route::get('payment-with/razorpay', 'OrderController@razorpay_view');
 	Route::get('payment-success', 'OrderController@payment_success')->name('payment.success');
-
+	Route::get('payment-confirm', 'OrderController@confirm')->name('payment.confirm');
 	Route::get('payment-fail', 'OrderController@payment_fail')->name('payment.fail');
 });
 

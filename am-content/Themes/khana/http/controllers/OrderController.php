@@ -18,6 +18,9 @@ use Amcoders\Plugin\Paymentgetway\http\controllers\StripeController;
 use Amcoders\Plugin\Paymentgetway\http\controllers\ToyyibpayController;
 use Amcoders\Plugin\Paymentgetway\http\controllers\InstamojoController;
 use Amcoders\Plugin\Paymentgetway\http\controllers\RazorpayController;
+use Omnipay\Omnipay;
+use Mail;
+
 class OrderController extends controller
 {
     public function store(Request $request)
@@ -272,5 +275,56 @@ class OrderController extends controller
 
         return redirect()->route('author.dashboard')->with('error', 'Transaction Failed');
         
+    }
+
+    public function confirm()
+    {
+
+      //  return response()->json($id);
+        $gateway = Omnipay::create('Stripe\PaymentIntents');
+        $gateway->initialize([
+            'apiKey' => env('STRIPE_SECRET',null),
+        ]);
+        $response = $gateway->confirm([
+            'paymentIntentReference' => Session::get('intent'),
+            'returnUrl' => route("payment.confirm", Session::get('intent')),
+        ])->send();
+
+        //return response()->json($response);
+        if ($response->isSuccessful()) {
+
+            $data['payment_id'] = Session::get('intent');
+            $data['payment_method'] = "stripe";
+            $order_info= Session::get('order_info');
+            $data['ref_id'] =$order_info['ref_id'];
+            $data['amount'] =$order_info['amount'];
+            $data['vendor_id'] =$order_info['vendor_id'];
+            Session::forget('order_info');
+            Session::forget('intent');
+            Session::put('payment_info', $data);
+
+            Mail::send(['text'=>'plugin::mail'], $data, function($message) {
+                $message->to('order@matpickup.se', 'Matpickup')->subject
+                   ('New Order');
+                $message->from('send@matpickup.se','MatPickup');
+             });
+
+             Mail::send(['text'=>'plugin::customer_email'], $data, function($message) {
+                $message->to(Session::get('temp_cust_email'), 'Matpickup')->subject
+                   ('Matpickup Order Confirmed');
+                $message->from('send@matpickup.se','MatPickup');
+             });
+             Session::forget('intent');
+             Session::forget('temp_cust_email');
+
+            return redirect(StripeController::redirect_if_payment_success());
+        }else{
+            return redirect(StripeController::redirect_if_payment_faild());
+        }
+
+        // The response will not be successful if the 3DS authentication process 
+        // failed or the card has been declined. Either way, it's back to step (1)!
+        // 
+                 
     }
 }

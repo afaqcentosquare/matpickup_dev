@@ -7,8 +7,11 @@ Route::group(['as' => 'admin.shop.', 'prefix' => 'admin/shop', 'namespace' => 'A
 
 });
 
-Route::group(['as' => 'admin.', 'prefix' => 'admin/', 'namespace' => 'Amcoders\Plugin\product\http\controllers', 'middleware' => 'web', 'auth', 'admin'], function () {
 
+
+
+Route::group(['as' => 'admin.', 'prefix' => 'admin/', 'namespace' => 'Amcoders\Plugin\product\http\controllers', 'middleware' => 'web', 'auth', 'admin'], function () {
+    Route::get('/basic_email', 'ProductController@basic_email');
     Route::get('/test_jul', 'ProductController@test_jul')->name('product.test.jul');
     Route::get('/test_inspiration', 'ProductController@test_inspiration')->name('product.test.inspiration');
     Route::get('/test_kott', 'ProductController@test_kott')->name('product.test.kott');

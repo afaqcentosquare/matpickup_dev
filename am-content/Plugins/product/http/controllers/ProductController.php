@@ -17,7 +17,7 @@ use File;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Str;
-
+use Mail;
 class ProductController extends controller
 {
 
@@ -403,16 +403,17 @@ class ProductController extends controller
 
     public function test_jul()
     {
+        $store_url_id = "maxi-ica-stormarknad-eskilstuna-id_12688";
         $user_id = 26;
-        $category_id = 2676;
-        $category_name = "Jul";
+        $category_id = 2347;
+        $category_name = "Butikens egna varor";
         $category_slug = Str::slug($category_name);
         if ($category_slug == '') {
             $category_slug = str_replace(' ', '-', $category_name);
         }
         $category_slug_url = $category_slug . '-' . '_' . $category_id;
 
-        $category_products_url = 'https://handla.ica.se/api/content/v1/collection/customer-type/B2C/store/maxi-ica-stormarknad-katrineholm-id_10735/products?categories=' . $category_slug_url;
+        $category_products_url = 'https://handla.ica.se/api/content/v1/collection/customer-type/B2C/store/'.$store_url_id.'/products?categories=' . $category_slug_url;
 
         $category_products_ch = curl_init();
         curl_setopt($category_products_ch, CURLOPT_URL, $category_products_url);
@@ -424,22 +425,9 @@ class ProductController extends controller
         curl_close($category_products_ch);
         $category_products_response = json_decode($category_products_response);
 
-        $category_products_array = array();
-
-        $products = array();
-        $category_products = Category::where("user_id", $user_id)->where("type", 1)->where("name", $category_name)->first();
-
-        if ($category_products) {
-            $post_category_ids = PostCategory::where("category_id", $category_products->id)->pluck("term_id");
-
-            Terms::whereIn("id", $post_category_ids)->delete();
-            PostCategory::where("category_id", $category_products->id)->delete();
-            Category::where("user_id", $user_id)->where("type", 1)->where("name", $category_name)->delete();
-        }
-       //return;
         foreach ($category_products_response->items as $category_item) {
             if ($category_item->type == 'product') {
-                $products_url = 'https://handla.ica.se/api/content/v1/collection/customer-type/B2C/store/maxi-ica-stormarknad-katrineholm-id_10735/products-data?skus=' . $category_item->id;
+                $products_url = 'https://handla.ica.se/api/content/v1/collection/customer-type/B2C/store/'.$store_url_id.'/products-data?skus=' . $category_item->id;
 
                 $products_ch = curl_init();
                 curl_setopt($products_ch, CURLOPT_URL, $products_url);
@@ -451,16 +439,13 @@ class ProductController extends controller
                 curl_close($products_ch);
                 $products_response = json_decode($products_response, true);
 
-                //return response()->json($products_response);
-
                 $is_term_available = Terms::where("title", $products_response[0]['name'])->where("auth_id", $user_id)
                     ->join("post_category", "post_category.term_id", "terms.id")
                     ->join("categories", "categories.id", "post_category.category_id")
                     ->where("categories.name", $category_name)
                     ->join("product_meta", "product_meta.term_id", "terms.id")
-                    ->where("product_meta.price", $products_response[0]['price'])
                     ->first();
-
+                   
                 $descriptionLong = isset($products_response[0]['descriptionLong']) ? $products_response[0]['descriptionLong'] : "";
                 $productDisclaimer = isset($products_response[0]['productDisclaimer']) ? $products_response[0]['productDisclaimer'] : "";
                 $nutritionalText = isset($products_response[0]['nutritionalText']) ? $products_response[0]['nutritionalText'] : "";
@@ -497,7 +482,7 @@ class ProductController extends controller
                     $product->price = (double) $products_response[0]['price'];
                     $product->save();
 
-                    $categories = Category::where('user_id', 26)->where("name", $category_name)->first();
+                    $categories = Category::where('user_id', $user_id)->where("name", $category_name)->first();
 
                     if (!$categories) {
                         $category_slug = Str::slug($category_name);
@@ -522,6 +507,12 @@ class ProductController extends controller
                         $cat->term_id = $post->id;
                         $cat->category_id = $categories->id;
                         $cat->save();
+                    }
+                }else{
+                    if($is_term_available->price != $products_response[0]['price']){
+                        Productmeta::where('term_id', $is_term_available->term_id)->update([
+                            'price' => $products_response[0]['price']
+                        ]);
                     }
                 }
 
@@ -3356,4 +3347,6 @@ class ProductController extends controller
 
     //     return $store_products;
     // }
+
+   
 }

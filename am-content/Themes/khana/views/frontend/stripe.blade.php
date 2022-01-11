@@ -125,16 +125,29 @@ var form = document.getElementById('payment-form');
 form.addEventListener('submit', function(event) {
     event.preventDefault();
 
-    stripe.createToken(card).then(function(result) {
-        if (result.error) {
-            // Inform the user if there was an error.
-            var errorElement = document.getElementById('card-errors');
-            errorElement.textContent = result.error.message;
-        } else {
-            // Send the token to your server.
-            stripeTokenHandler(result.token);
-        }
-    });
+    // stripe.createToken(card).then(function(result) {
+    //     if (result.error) {
+    //         // Inform the user if there was an error.
+    //         var errorElement = document.getElementById('card-errors');
+    //         errorElement.textContent = result.error.message;
+    //     } else {
+    //         // Send the token to your server.
+    //         stripeTokenHandler(result.token);
+    //     }
+    // });
+
+    stripe.createPaymentMethod('card', card, {
+            }).then(function(result) {
+
+                if (result.error) {
+                    // cardButton.disabled = false;
+                    // alert(result.error.message);
+                } else {
+                    stripeTokenHandler(result.paymentMethod);
+                    // paymentMethodIdField.value = result.paymentMethod.id;
+                    // myForm.submit();
+                }
+            });
 });
 
 // Submit the form with the token ID.
@@ -145,6 +158,7 @@ function stripeTokenHandler(token) {
     hiddenInput.setAttribute('type', 'hidden');
     hiddenInput.setAttribute('name', 'stripeToken');
     hiddenInput.setAttribute('value', token.id);
+    //console.log(token.id);
     form.appendChild(hiddenInput);
 
     // Submit the form

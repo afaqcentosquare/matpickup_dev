@@ -166,6 +166,10 @@ ul.adress li a{
 body{
     margin: 0;
 }
+.container {
+    width: 85% !important;
+}
+
 </style>
 </head>
 

@@ -29,6 +29,7 @@
         "league/omnipay": "^3",
         "maatwebsite/excel": "^3.1",
         "omnipay/paypal": "^3.0",
+        "omnipay/stripe": "^3.1",
         "razorpay/razorpay": "^2.5",
         "samdark/sitemap": "^2.2",
         "simplesoftwareio/simple-qrcode": "~4",

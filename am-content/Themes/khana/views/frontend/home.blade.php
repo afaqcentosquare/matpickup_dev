@@ -1,4 +1,4 @@
-@extends("theme::frontend.master")
+﻿@extends("theme::frontend.master")
 @section("content")
 <div class="container">
     <div class="row">
@@ -10,7 +10,7 @@
                     <div class="category-toggle-wrap">
                         <!-- Category Toggle -->
                         <button class="more-btn">
-                            <span class="lnr lnr-text-align-left"></span>Städer
+                            <span class="lnr lnr-text-align-left"></span>Städer Många
                         </button>
                     </div>
 
