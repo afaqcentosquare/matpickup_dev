@@ -194,8 +194,5 @@ class StormarknadKatrineholmJul extends Command
     
             $this->info($e->getMessage());
         }
-       
-
-       
     }
 }
